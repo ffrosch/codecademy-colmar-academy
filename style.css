@@ -1,5 +1,14 @@
+:root {
+  --primary-color: grey;
+  --secondary-color: lightgrey;
+  --text-color: #272727;
+  --text-color-lighter: #3f3f3f;
+}
+
 html {
   font-size: 1rem;
+  font-family: sans-serif;
+  color: var(--text-color);
 }
 
 menu {
@@ -17,10 +26,63 @@ menu {
 menu img {
   height: 2rem;
   width: 2rem;
+  display: inline-block;
 }
 
 .desktop {
   display: none;
+}
+
+.logo-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  background: var(--secondary-color);
+}
+
+.hero__image {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.hero__content {
+  padding: 2rem 1rem;
+  margin: 0;
+}
+
+.hero__title {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+}
+
+.hero__text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-color-lighter);
+  margin-bottom: 1.5rem;
+}
+
+.hero__cta {
+  color: white;
+  background: var(--primary-color);
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  width: 100%;
+  padding: 0.5rem;
+
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+.hero__cta:hover {
+  filter: brightness(1.2);
 }
 
 @media screen and (min-width: 760px) {
@@ -34,5 +96,34 @@ menu img {
 
   .mobile {
     display: none;
+  }
+
+  .logo-name {
+    font-size: 1.5rem;
+  }
+
+  .logo-name img {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .hero {
+    display: flex;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero__image {
+    aspect-ratio: 4 / 3;
+    width: 60%;
+    padding: 2rem 1.5rem;
+  }
+
+  .hero__cta {
+    width: min(20rem, calc(100% - 2rem));
   }
 }
