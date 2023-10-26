@@ -72,8 +72,35 @@ section > .section__content {
   padding: 2rem 1rem;
 }
 
+section .section__title {
+  width: 100%;
+  text-align: center;
+  padding: 0 0 1rem 0;
+}
+
+section.hero {
+  background: var(--secondary-color);
+}
+
+section.learning {
+  background: white;
+}
+
 section.hero > .section__content {
   padding: 0;
+}
+
+section.info > .section__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  gap: 2rem 2.5rem;
+}
+
+section.learning > .section__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .desktop {
@@ -84,10 +111,6 @@ section.hero > .section__content {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.hero {
-  background: var(--secondary-color);
 }
 
 .hero__image {
@@ -129,13 +152,6 @@ section.hero > .section__content {
 
 .hero__cta:hover {
   filter: brightness(1.2);
-}
-
-.info > .section__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: flex-start;
-  gap: 2rem 2.5rem;
 }
 
 .info__card {
@@ -183,6 +199,29 @@ section.hero > .section__content {
 .info__card__link {
 }
 
+.learning__card {
+  flex: 100%;
+  background: var(--secondary-color);
+}
+
+.learning__card__image {
+  object-fit: contain;
+}
+
+.learning__card__content {
+  padding: 1rem 1rem;
+}
+
+.learning__card__title {
+}
+
+.learning__card__subtitle {
+  text-transform: uppercase;
+}
+
+.learning__card__text {
+}
+
 @media screen and (min-width: 760px) {
   menu li:first-child {
     margin-right: auto;
@@ -190,6 +229,26 @@ section.hero > .section__content {
 
   section > .section__content {
     padding: 2rem 1.5rem !important;
+  }
+
+  section.hero > .section__content {
+    display: flex;
+  }
+  section.info > .section__content {
+    grid-template-columns: 60% 1fr;
+  }
+
+  section.learning {
+    background: var(--secondary-color);
+  }
+
+  section.learning > .section__content {
+    gap: 2rem;
+    padding: 2rem 4.5rem !important;
+  }
+
+  section.learning > .section__content > .section__title {
+    padding: 0;
   }
 
   .desktop {
@@ -209,10 +268,6 @@ section.hero > .section__content {
     width: 3rem;
   }
 
-  section.hero > .section__content {
-    display: flex;
-  }
-
   .hero__content {
     display: flex;
     flex-direction: column;
@@ -224,10 +279,6 @@ section.hero > .section__content {
   .hero__image {
     aspect-ratio: 4 / 3;
     width: 60%;
-  }
-
-  section.info > .section__content {
-    grid-template-columns: 60% 1fr;
   }
 
   .info__card {
@@ -257,5 +308,10 @@ section.hero > .section__content {
   .info__card__content {
     flex: 0 1 65%;
     padding: 0;
+  }
+
+  .learning__card {
+    flex: 1 1 30%;
+    background: white;
   }
 }
