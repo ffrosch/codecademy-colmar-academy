@@ -103,8 +103,12 @@ section.learning > .section__content {
   gap: 0.5rem;
 }
 
-.desktop {
-  display: none;
+section.thesis > .section__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  gap: 2rem 2.5rem;
+  padding: 2rem 0;
 }
 
 .logo-name {
@@ -161,13 +165,9 @@ section.learning > .section__content {
   gap: 1rem;
 }
 
-.info__card--highlight {
-  display: none;
-}
-
 .info__card__image-container {
   height: auto;
-  width: 100%;
+  flex: 1 1 100%;
   align-self: flex-start;
 }
 
@@ -222,6 +222,10 @@ section.learning > .section__content {
 .learning__card__text {
 }
 
+.desktop {
+  display: none;
+}
+
 @media screen and (min-width: 760px) {
   menu li:first-child {
     margin-right: auto;
@@ -234,6 +238,7 @@ section.learning > .section__content {
   section.hero > .section__content {
     display: flex;
   }
+
   section.info > .section__content {
     grid-template-columns: 60% 1fr;
   }
@@ -247,12 +252,17 @@ section.learning > .section__content {
     padding: 2rem 4.5rem !important;
   }
 
-  section.learning > .section__content > .section__title {
+  section.thesis > .section__content {
+    grid-template-columns: 60% 1fr;
+  }
+
+  .section__content > .section__title {
     padding: 0;
+    grid-column: span 2;
   }
 
   .desktop {
-    display: block;
+    display: flex;
   }
 
   .mobile {
@@ -311,7 +321,7 @@ section.learning > .section__content {
   }
 
   .learning__card {
-    flex: 1 1 30%;
+    flex: 1 0 max(250px, 30%);
     background: white;
   }
 }
