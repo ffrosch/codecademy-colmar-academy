@@ -1,3 +1,9 @@
+/*
+####################
+Document-wide settings
+####################
+*/
+
 :root {
   --primary-color: grey;
   --secondary-color: lightgrey;
@@ -12,6 +18,16 @@ html {
   min-width: 360px;
 }
 
+img {
+  object-fit: cover;
+}
+
+/*
+####################
+Header & Nav
+####################
+*/
+
 header {
   display: flex;
   position: fixed;
@@ -19,31 +35,6 @@ header {
   top: 0;
   height: 4rem;
   background: white;
-}
-
-footer {
-  border-top: 1px solid hsla(0, 0%, 50%, 0.1);
-}
-
-.header__content,
-.footer__content {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.footer__content {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 1.5rem 2rem;
-}
-
-.footer__content > :first-child {
-  margin-right: auto;
-}
-
-main {
-  margin-top: 4rem;
 }
 
 menu {
@@ -62,70 +53,109 @@ menu img {
   display: inline-block;
 }
 
-section {
-  display: grid;
-  grid-template-columns: 1fr min(1200px, 100%) 1fr;
-}
-
-section > .section__content {
-  grid-column: 2;
-  padding: 2rem 1rem;
-}
-
-section .section__title {
-  width: 100%;
-  text-align: center;
-  padding: 0 0 1rem 0;
-}
-
-section.hero {
-  background: var(--secondary-color);
-}
-
-section.learning {
-  background: white;
-}
-
-section.hero > .section__content {
-  padding: 0;
-}
-
-section.info > .section__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: flex-start;
-  gap: 2rem 2.5rem;
-}
-
-section.learning > .section__content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-section.thesis > .section__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: flex-start;
-  gap: 2rem 2.5rem;
-  padding: 2rem 0;
-}
-
 .logo-name {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/*
+####################
+Footer
+####################
+*/
+
+.header__content,
+.footer__content {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer {
+  border-top: 1px solid hsla(0, 0%, 50%, 0.1);
+}
+
+.footer__content {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.footer__content > :first-child {
+  margin-right: auto;
+}
+
+/*
+####################
+Main
+####################
+*/
+
+main {
+  margin-top: 4rem;
+}
+
+/* Sections */
+
+section {
+  display: grid;
+  grid-template-columns: 1fr min(1200px, 100%) 1fr;
+}
+
+.section__title {
+  width: 100%;
+  text-align: center;
+  padding: 0 0 1rem 0;
+}
+
+.section__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  grid-column: 2;
+  padding: 2rem 1rem;
+}
+
+/* Section specific settings */
+
+.hero {
+  background: var(--secondary-color);
+}
+
+.courses {
+  background: white;
+}
+
+:is(.info, .thesis) > .section__content {
+  gap: 2rem 2.5rem;
+}
+
+.hero > .section__content {
+  padding: 0;
+}
+
+.thesis > .section__content {
+  padding: 2rem 0;
+}
+
+.courses > .section__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Hero */
+
 .hero__image {
   aspect-ratio: 16 / 10;
-  width: 100%;
-  object-position: center;
-  object-fit: cover;
 }
 
 .hero__content {
   padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero__title {
@@ -158,115 +188,109 @@ section.thesis > .section__content {
   filter: brightness(1.2);
 }
 
-.info__card {
+/* Normal card */
+
+.card {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
 }
 
-.info__card__image-container {
-  height: auto;
+.card.card--highlight {
+  display: grid;
+  grid-column: 1;
+  grid-row: span 3;
+}
+
+.card__media {
   flex: 1 1 100%;
   align-self: flex-start;
 }
 
-.info__card__image-container > img {
-  object-fit: contain;
-}
-
-.info__card__content {
+.card__content {
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.5rem;
 }
 
-.info__card__title {
+.card__title {
 }
 
-.info__card__preview {
+.card__preview {
 }
 
-.info__card__text {
-  display: none;
+.card__text {
 }
 
-.info__card__author {
-  display: none;
+.card__author {
 }
 
-.info__card__link {
+.card__link {
 }
 
-.learning__card {
+/* Courses card */
+
+.courses__card {
   flex: 100%;
   background: var(--secondary-color);
 }
 
-.learning__card__image {
-  object-fit: contain;
-}
-
-.learning__card__content {
+.courses__card__content {
   padding: 1rem 1rem;
 }
 
-.learning__card__title {
+.courses__card__title {
 }
 
-.learning__card__subtitle {
+.courses__card__subtitle {
   text-transform: uppercase;
 }
 
-.learning__card__text {
+.courses__card__text {
 }
 
-.desktop {
-  display: none;
+@media screen {
+  .hidden {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 759px) {
+  .desktop {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: 760px) {
+  .mobile {
+    display: none !important;
+  }
+
   menu li:first-child {
     margin-right: auto;
   }
 
-  section > .section__content {
-    padding: 2rem 1.5rem !important;
-  }
-
-  section.hero > .section__content {
-    display: flex;
-  }
-
-  section.info > .section__content {
-    grid-template-columns: 60% 1fr;
-  }
-
-  section.learning {
+  .courses {
     background: var(--secondary-color);
   }
 
-  section.learning > .section__content {
+  .courses > .section__content {
     gap: 2rem;
     padding: 2rem 4.5rem !important;
   }
 
-  section.thesis > .section__content {
+  .section__content {
     grid-template-columns: 60% 1fr;
+    align-items: stretch;
+    padding: 2rem 1.5rem !important;
   }
 
-  .section__content > .section__title {
-    padding: 0;
+  .section__title {
+    padding: 0 !important;
     grid-column: span 2;
-  }
-
-  .desktop {
-    display: flex;
-  }
-
-  .mobile {
-    display: none;
   }
 
   .logo-name {
@@ -278,49 +302,35 @@ section.thesis > .section__content {
     width: 3rem;
   }
 
+  .hero__image {
+    aspect-ratio: 4 / 3;
+    grid-column: 1;
+  }
+
   .hero__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    grid-column: 2;
     max-width: 40ch;
-    padding: 2rem 1.5rem;
+    padding: 0 1.5rem;
   }
 
-  .hero__image {
-    aspect-ratio: 4 / 3;
-    width: 60%;
-  }
-
-  .info__card {
+  .card {
     flex-wrap: nowrap;
     grid-column: 2;
   }
 
-  .info__card--highlight {
-    display: grid;
-    flex-wrap: wrap;
-    grid-column: 1;
-    grid-row: span 3;
-  }
-
-  .info__card--highlight :is(.info__card__author, .info__card__text) {
-    display: block;
-  }
-
-  .info__card--highlight :is(.info__card__preview, .info__card__link) {
-    display: none;
-  }
-
-  .info__card__image-container {
+  .card__media {
     flex: 0 1 35%;
   }
 
-  .info__card__content {
+  .card__content {
     flex: 0 1 65%;
     padding: 0;
   }
 
-  .learning__card {
+  .courses__card {
     flex: 1 0 max(250px, 30%);
     background: white;
   }
